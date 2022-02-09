@@ -1,0 +1,33 @@
+[{
+    "subject":"definition",
+    "sentences": ["Qu'est ce que l'islam?"],
+    "responses": ["L'islam est une religion abrahamique s'appuyant sur le dogme du monothéisme absolu et prenant sa source dans le Coran, considéré comme le réceptacle de la parole de Dieu révélée, au VIIᵉ siècle en Arabie, à Mahomet, proclamé par les adhérents de l'islam comme étant le dernier prophète de Dieu."],
+    "value": 1,
+    "type":"question"
+},{
+    "subject":"whoIsGod",
+    "sentences": ["Qui est Dieu", "Qui est le seigneur de l'univers"],
+    "responses": ["Le créateur de toutes choses.", "Dieu est grand",
+                  "Le créateur de l'univers, de l'espace et du temps"],
+    "value": 1,
+    "type":"question"
+},{
+    "subject":"whoIsMohamed",
+    "sentences": ["Qui est le prophète Mohamed", "Qui est Mohamed", "qui est mohamed", "qui est mohammed"],
+    "responses": ["Le dernier messager de dieu",
+                 "Un prophète de dieu à qui a été révélé le saint coran"],
+    "value": 1,
+    "type":"question"
+},{
+    "subject":"fatiha",
+    "sentences": ["Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux.",
+                  "Louange à Allah, Seigneur de l'univers.",
+                  "Le Tout Miséricordieux, le Très Miséricordieux",
+                  "Maître du Jour de la rétribution.",
+                  "C'est Toi [Seul] que nous adorons, et c'est Toi [Seul] dont nous implorons secours.",
+                  "Guide-nous dans le droit chemin",
+                  "Le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés."],
+    "responses": ["Amin"],
+    "value": 1,
+    "type":"information"
+}]

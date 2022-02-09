@@ -1,0 +1,126 @@
+[{
+    "subject":"joke",
+    "sentences": ["Fais moi rire", "Raconte moi une blague", "Dis moi une blague"],
+    "responses": ["Attend je regarde dans mon répertoire de blague"],
+    "value": 2,
+    "type":"action"
+},{
+    "subject":"war",
+    "sentences": ["L’intelligence militaire est une contradiction dans les termes."],
+    "responses": ["Groucho Marx"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"war",
+    "sentences": ["Je ne comprends pas les anglais ! Tandis qu’en France nous donnons à nos rues des noms de victoire : Wagram, Austerlitz… là-bas, on leur colle des noms de défaite: Trafalgar square, Waterloo Place"],
+    "responses": ["Alphonse Allais"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"war",
+    "sentences": ["On tue un homme, on est un assassin. On tue des millions d’hommes, on est un conquérant. On les tue tous, on est un Dieu."],
+    "responses": ["Edmond Rostand"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"war",
+    "sentences": ["C’est pour satisfaire les sens qu’on fait l’amour; et c’est pour l’essence qu’on fait la guerre."],
+    "responses": ["Raymond Devos"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"politic",
+    "sentences": ["Le mois de l’année où le politicien dit le moins de conneries, c’est le mois de février, parce qu’il y a que 28 jours."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"politic",
+    "sentences": ["Ça fait beaucoup marrer les gens de voir qu’on peut se moquer de la politique, alors que dans l’ensemble, c’est surtout la politique qui se moque de nous."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"politic",
+    "sentences": ["Les conneries c’est comme les impôts, on finit toujours par les payer."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"politic",
+    "sentences": ["C’est pas dur la politique comme métier ! Tu fais cinq ans de droit et tout le reste c’est de travers."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"intelligence",
+    "sentences": ["Descartes disait que l’intelligence, c’est la chose la mieux répartie chez les hommes parce que, quoiqu’il en soit pourvu, il a toujours l’impression d’en avoir assez, vu que c’est avec ça qu’il juge."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"intelligence",
+    "sentences": ["Un intellectuel assis va moins loin qu’un con qui marche"],
+    "responses": ["Michel Audiard"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"intelligence",
+    "sentences": ["L’intelligence, c’est comme les parachutes.Quand on n’en a pas, on s’écrase."],
+    "responses": ["Pierre Desproges"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"intelligence",
+    "sentences": ["La culture c’est comme la confiture : moins on en a, plus on l’étale."],
+    "responses": ["Pierre Desproges"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"intelligence",
+    "sentences": ["La culture c’est comme la confiture : moins on en a, plus on l’étale."],
+    "responses": ["Pierre Desproges"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"ealth",
+    "sentences": ["Mon psychiatre, pour quinze mille francs, il m’a débarrassé de ce que j’avais : quinze mille francs."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"ealth",
+    "sentences": ["Pour les missiles antimissiles, il y a les impôts. Pour le cancer, on fait la quête."],
+    "responses": ["Pierre Desproges"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"ealth",
+    "sentences": ["La médecine est un métier dangereux. Ceux qui ne meurent pas peuvent vous faire un procès."],
+    "responses": ["Coluche"],
+    "value": 1,
+    "type":"information"
+},
+{
+    "subject":"ealth",
+    "sentences": ["L’avantage des médecins, c’est que lorsqu’ils commettent une erreur, ils l’enterrent tout de suite…"],
+    "responses": ["Alphonse Allais"],
+    "value": 1,
+    "type":"information"
+}]
+
