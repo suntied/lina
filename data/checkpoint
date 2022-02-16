@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/marcorodriguez/PycharmProjects/tensorflow/vocal/lina/data/modelValues.tflearn"
+all_model_checkpoint_paths: "/Users/marcorodriguez/PycharmProjects/tensorflow/vocal/lina/data/modelValues.tflearn"

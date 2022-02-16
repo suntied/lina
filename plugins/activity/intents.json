@@ -1,0 +1,34 @@
+[{
+    "subject":"whatActivity",
+    "sentences": ["Qu'est-ce qu'on peut faire","Que faire aujourd'hui","On s'ennuie"],
+    "responses": [""],
+    "value": 0,
+    "type":"question"
+},
+{
+    "subject":"whatActivityAlone",
+    "sentences": ["Quelle activité pour une personne","Quelle activité je peux faire solo", "Quelle activité je peux faire tout seul", "Je fais quoi", "Qu'est-ce que je peux faire","Que faire aujourd'hui si on est tout seul","Je m'ennuie"],
+    "responses": [""],
+    "value": 0,
+    "type":"question"
+},{
+    "subject":"whatActivityTwo",
+    "sentences": [
+        "Quelle activité pour deux personnes",
+        "Je fais quoi avec mon pote"],
+    "responses": [""],
+    "value": 0,
+    "type":"question"
+},{
+    "subject":"whatActivityNumber",
+    "sentences": ["Quelle activité pour plusieurs personnes",
+        "Quelle activité pour trois personnes",
+        "Quelle activité pour quatre personnes",
+        "Quelle activité pour cinq personnes",
+        "Quelle activité pour six personnes",
+        "Quelle activité pour sept personnes",
+        "Quelle activité pour huit personnes"],
+    "responses": [""],
+    "value": 0,
+    "type":"question"
+}]

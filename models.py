@@ -42,6 +42,8 @@ def getModelSpeaker(persons):
     return model
 
 if __name__ == '__main__':
+
+
     subjects, types, stopwords, dictionnary = tools.defaultValues()
     print("subjects:", subjects)
     print("types:", types)

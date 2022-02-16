@@ -1,6 +1,8 @@
 import nltk
 import os
 import json
+import re
+
 from imutils import paths
 from nltk.stem.snowball import FrenchStemmer
 
@@ -36,7 +38,7 @@ def readPath(pathName, subjects, types, dictionnary):
             dataTraining= json.load(trainingFile)
             subjects, types, dictionnary= parseFileData(dataTraining, themeName, subjects, types, dictionnary)
     return subjects, types, dictionnary
-    
+
 def parseFileData(dataList, themeName, subjects, types, dictionnary):
     tokenizer = nltk.RegexpTokenizer(r'\w+')
     stemmer = FrenchStemmer()

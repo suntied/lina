@@ -7,7 +7,7 @@ class PluginAlarm(PluginDefault):
 
     def response(self, sentence=""):
         themeName= self.subject.split(".")[1]
-        if themeName == "whatTime":    
+        if themeName == "whatTime":
             t = time.localtime()
             current_time = time.strftime("%H:%M:%S", t)
             return "il est "+ current_time
