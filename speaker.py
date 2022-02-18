@@ -34,7 +34,7 @@ def readAudioFile(filePath):
 if __name__ == '__main__':
     speakers= ["Joan", "unknown"]
     model= models.getModelSpeaker(speakers)
-    inputData = readAudioFile("./training_data/mytest.wav")
+    inputData = readAudioFile("./training_data/mytestconvert.wav")
     outputData = [[1, 0] for _ in range(len(inputData))]
     inputData2 = readAudioFile("./training_data/test2.wav")
     outputData2 = [[0, 1] for _ in range(len(inputData2))]

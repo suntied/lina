@@ -10,19 +10,20 @@ from pluginDefault import PluginDefault
 class PluginActivity(PluginDefault):
 
     def response(self, sentence=""):
+        global r
         themeName= self.subject.split(".")[1]
-        r = requests.get('https://www.boredapi.com/api/activity')
-        json = r.json()
-        response = ResponseActivity(json['activity'],json['type'],json['participants'],json['price'],json['link'],json['accessibility'])
         if themeName == "whatActivity":
             #return r.json()
-            return response.response()
+            r = requests.get('https://www.boredapi.com/api/activity')
         elif themeName == "whatActivityAlone":
-            return response.response()
+            r = requests.get('https://www.boredapi.com/api/activity?participants=1')
         elif themeName == "whatActivityTwo":
-            return response.response()
+            r = requests.get('https://www.boredapi.com/api/activity?participants=2')
         elif themeName == "whatActivityNumber":
-            return response.response()
+            r = requests.get('https://www.boredapi.com/api/activity')
+        json = r.json()
+        response = ResponseActivity(json['activity'],json['type'],json['participants'],json['price'],json['link'],json['accessibility'])
+        return response.response()
 
 
 
