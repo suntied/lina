@@ -78,8 +78,8 @@ try:
     device_info = sd.query_devices(None, 'input')
     # soundfile expects an int, sounddevice provides a float:
     default_samplerate = int(device_info['default_samplerate'])
-
-
+    thrread = None
+    UserField = None
 except Exception as e:
     print(e)
 
@@ -107,6 +107,8 @@ def speak(text, display=False, icon=False):
     AITaskStatusLbl['text'] = 'Speaking...'
     if icon: Label(chat_frame, image=botIcon, bg=chatBgColor).pack(anchor='w', pady=0)
     if display: attachTOframe(text, True)
+    if "Selectionner le sujet qui se rapproche le plus du sujet demander" in text:
+        return
     print('\n' + ai_name.upper() + ': ' + text)
     try:
         engine.say(text)
@@ -124,9 +126,6 @@ def record(objectmodel,clearChat=True, iconDisplay=True):
 
     with sd.RawInputStream(samplerate=default_samplerate, blocksize=8000, device=None, dtype='int16',
                            channels=1, callback=callback):
-        print('#' * 80)
-        print('Press Ctrl+C to stop the recording')
-        print('#' * 80)
         rec = vosk.KaldiRecognizer(objectmodel.model, default_samplerate)
         rec.SetSpkModel(objectmodel.spk_model)
         while True:
@@ -203,8 +202,18 @@ def isContain(txt, lst):
 
 def main(text, rSubject, rType):
     result = searchAnswer(text, subjects[numpy.argmax(rSubject)], types[numpy.argmax(rType)])
-
     speak(result, True, True)
+    data = {
+        'last':
+            {
+                'sentence': text,
+            }
+    }
+    if "Dis lina" in text or "dis lina" in text:
+        print("Dis lina talk")
+    else :
+        with open("historical.json", 'w') as writefile:
+            json.dump(data, writefile)
     # webScrapping.googleSearch(text) #uncomment this if you want to show the result on web, means if nothing found
 
 
@@ -215,9 +224,20 @@ def main(text, rSubject, rType):
 ############ ATTACHING BOT/USER CHAT ON CHAT SCREEN ###########
 def attachTOframe(text, bot=False):
     if bot:
-        botchat = Label(chat_frame, text=text, bg=botChatTextBg, fg=botChatText, justify=LEFT, wraplength=250,
-                        font=('Montserrat', 12, 'bold'))
-        botchat.pack(anchor='w', ipadx=5, ipady=5, pady=5)
+        if "Selectionner le sujet qui se rapproche le plus du sujet demander" in text:
+            print("*******************", text.split(':')[0])
+
+            botchat = Label(chat_frame, text=text.split(':')[0], bg=botChatTextBg, fg=botChatText, justify=LEFT, wraplength=250,
+                            font=('Montserrat', 12, 'bold'))
+            listcombo = ttk.Combobox(chat_frame, values=text.split(':')[1].split(','))
+            botchat.pack(anchor='w', ipadx=5, ipady=5, pady=5)
+            listcombo.pack()
+            listcombo.bind('<<ComboboxSelected>>', sendrequest(listcombo))
+
+        else:
+            botchat = Label(chat_frame, text=text, bg=botChatTextBg, fg=botChatText, justify=LEFT, wraplength=250,
+                            font=('Montserrat', 12, 'bold'))
+            botchat.pack(anchor='w', ipadx=5, ipady=5, pady=5)
     else:
         userchat = Label(chat_frame, text=text, bg=userChatTextBg, fg='white', justify=RIGHT, wraplength=250,
                          font=('Montserrat', 12, 'bold'))
@@ -228,7 +248,15 @@ def clearChatScreen():
     for wid in chat_frame.winfo_children():
         wid.destroy()
 
-
+def sendrequest(listcombo):
+    while listcombo.get() == '':
+        print("$$$$$$$$$$$$$$$")
+    select = listcombo.get()
+    print("------------------",select)
+    global UserField
+    UserField.delete(0,END)
+    UserField.insert(0,"Dis lina" + listcombo.get())
+    root.event_generate('<Return>')
 ### SWITCHING BETWEEN FRAMES ###
 def raise_frame(frame):
     frame.tkraise()
@@ -272,7 +300,7 @@ def progressbar():
     Thread(target=testThread).start()
 
     while objectmodel is None:
-        progress_bar['value'] += 0.25
+        progress_bar['value'] += 0.2
         # splash_percentage_label['text'] = str(progress_bar['value']) + ' %'
         splash_root.update()
 
@@ -329,7 +357,7 @@ if __name__ == '__main__':
     chat_frame = Frame(root1, width=380, height=551, bg=chatBgColor)
     chat_frame.pack(padx=10)
     chat_frame.pack_propagate(0)
-
+    value = [""]
     bottomFrame1 = Frame(root1, bg='#dfdfdf', height=100)
     bottomFrame1.pack(fill=X, side=BOTTOM)
     VoiceModeFrame = Frame(bottomFrame1, bg='#dfdfdf')

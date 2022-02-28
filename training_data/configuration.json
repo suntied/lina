@@ -1,0 +1,20 @@
+[{
+    "subject":"correction",
+    "sentences": ["Dis lina correction"],
+    "responses": ["Selectionner le sujet qui se rapproche le plus du sujet demander"],
+    "value": 1,
+    "type":"action"
+},{
+    "subject":"reload",
+    "sentences": ["Dis lina redemarre l'application"],
+    "responses": [""],
+    "value": 1,
+    "type":"action"
+},{
+    "subject":"subject",
+    "sentences": ["Dis lina meilleur film", "Dis lina bon film", "Dis lina bon mauvais film", "Dis lina activité", "Dis lina activité tout seul", "Dis lina activité à deux", "Dis lina activité indéfini", "Dis lina alarme à quelle heure", "Dis lina alarme à quelle heure ", "Dis lina configuration d'alarme", "Dis lina son à distance activé", "Dis lina son à distance désactivé", "Dis lina son à distance muet", "Dis lina tâches aujourd'hui", "Dis lina ajouter une tâche"],
+    "responses": [""],
+    "value": 1,
+    "type":"action"
+}
+]

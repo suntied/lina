@@ -1,3 +1,9 @@
+import json
+import os
+import re
+import shutil
+
+import models2
 import tools
 import random
 
@@ -36,6 +42,10 @@ class PluginDefault:
                     return intents[i]["sentences"][bestIndex]
         return "Pas mal la punchline"
 
+    def getAllSubjects(self):
+        subjects, types, stopwords, dictionnary = tools.defaultValues()
+        return subjects
+
     def response(self, sentence=""):
         # HUMOR
         if self.subject == "humor.joke":
@@ -45,10 +55,64 @@ class PluginDefault:
                 return "Toi " + joke["sentences"][0]
             return joke["sentences"][0]
 
-        # RAP
-        if self.subject.split(".")[0] == "rap":
-            intents = self.intentsBySubject("rap")
-            return self.searchSentence(sentence, self.subject, intents)
+        # Correction str(self.getAllSubjects()
+        if self.subject == "configuration.reload":
+            src = r"D:\Project\lina\plugins\activity\intentsTemp.json"
+            dest = r"D:\Project\lina\plugins\activity\intents.json"
+            shutil.copy2(src, dest)
+            models2.getModel()
+            return "Redemarrage effectué"
+        if self.subject == "configuration.subject":
+            historicalSentence = ""
+            with open("historical.json", 'r') as openfile:
+                json_object = json.load(openfile)
+                historicalSentence = json_object["last"]["sentence"]
+            route = 'plugins/activity/intentsTemp.json'
+            if sentence == "Dis lina activité" or sentence == "dis lina activité":
+                with open(route, 'r') as jsonfile:
+                    # Reading from json file
+                    #a = openfile.read()
+                    json_object1 = json.load(jsonfile)
+                    json_object1[0]["sentences"].append(historicalSentence)
+                    openfile.close()
+                    jsonfile.close()
+                with open("plugins/activity/intentsTemp.json", 'w') as writefile:
+                    json.dump(json_object1,writefile,ensure_ascii=False, indent=1)
+                    print("WRITEDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+                    #li = str(sentenceToWrite).rsplit("'", 2)
+                    #sentenceToWriteText = "\"".join(li)
+                    #sentenceToWriteText.replace("\"","")
+                    #replaced = re.sub(r'\"sentences\":(.+?)],', "\"sentences\": "+sentenceToWriteText+",", a, 1)
+
+                    #writefile.write(replaced)
+                    writefile.close()
+            if sentence == "Dis lina activité à deux" or sentence == "dis lina activité à deux":
+                with open(route, 'r') as jsonfile:
+                    # Reading from json file
+                    #a = openfile.read()
+                    json_object1 = json.load(jsonfile)
+                    json_object1[2]["sentences"].append(historicalSentence)
+                    openfile.close()
+                    jsonfile.close()
+                with open("plugins/activity/intentsTemp.json", 'w') as writefile:
+                    json.dump(json_object1,writefile,ensure_ascii=False, indent=1)
+                    print("WRITEDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+                    #li = str(sentenceToWrite).rsplit("'", 2)
+                    #sentenceToWriteText = "\"".join(li)
+                    #sentenceToWriteText.replace("\"","")
+                    #replaced = re.sub(r'\"sentences\":(.+?)],', "\"sentences\": "+sentenceToWriteText+",", a, 1)
+
+                    #writefile.write(replaced)
+                    writefile.close()
+
+            return "Modification effectuée veuillez redémarrez l'application"
+        if self.subject == "configuration.correction":
+            intents = self.intentsBySubject("configuration")
+            return intents[0]["responses"][
+                       0] + " : " + "meilleur film, bon film, bon mauvais film, activité, activité tout seul, " \
+                                    "activité à deux, activité indéfini, alarme à quelle heure, alarme à quelle heure " \
+                                    ", configuration d'alarme, son à distance activé, son à distance désactivé, " \
+                                    "son à distance muet, tâches aujourd'hui, ajouter une tâche "
 
         # DEFAULT
         for i in range(len(self.intents)):
